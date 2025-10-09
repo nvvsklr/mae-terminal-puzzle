@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Mae Terminal Interface</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Safari fallback - critical styles */
+        body { background-color: #000000 !important; color: #c0c0c0 !important; font-family: 'Consolas', 'Courier New', monospace !important; margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+        .terminal-container { width: 100%; height: 100vh; background-color: #000000 !important; border: 1px solid #808080; display: flex; flex-direction: column; }
+        .terminal-header { background: linear-gradient(180deg, #0078d4 0%, #106ebe 100%); color: white; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; }
+        .terminal-content { background-color: #000000 !important; color: #c0c0c0 !important; padding: 12px; font-family: 'Consolas', 'Courier New', monospace !important; flex: 1; overflow-y: auto; }
+        #user-input { background: transparent !important; border: none !important; color: #c0c0c0 !important; font-family: 'Consolas', 'Courier New', monospace !important; outline: none !important; -webkit-appearance: none !important; appearance: none !important; margin-left: 5px; }
+        .input-line { display: flex; align-items: center; margin-top: 10px; }
+        .message.mae { color: #00ff41; }
+        .message.user { color: #c0c0c0; }
+        .message.error { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Windows CMD Header -->
+        <div class="terminal-header">
+            <div class="header-left">
+                <span class="terminal-title">Mae Terminal Interface - Command Prompt</span>
+            </div>
+            <div class="header-right">
+                <button class="window-button minimize">_</button>
+                <button class="window-button maximize">□</button>
+                <button class="window-button close">×</button>
+            </div>
+        </div>
+
+        <!-- Terminal Content -->
+        <div class="terminal-content" id="terminal">
+            <div class="terminal-line">
+                <span class="path">C:\Users\User&gt;</span>
+                <span class="command">mae_terminal.exe</span>
+            </div>
+            <div class="terminal-line">
+                <span class="system-info">Mae Terminal Interface v1.0</span>
+            </div>
+            <div class="terminal-line">
+                <span class="copyright">Copyright (c) 2024 Mae Digital Systems</span>
+            </div>
+            <div class="terminal-line empty"></div>
+            
+            <!-- Messages will appear here -->
+            <div id="messages"></div>
+            
+            <!-- Input line -->
+            <div class="input-line" id="input-line">
+                <span class="path">C:\Users\User&gt;</span>
+                <input type="text" id="user-input" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connection Status -->
+    <div class="connection-status" id="connection-status">
+        <span class="status-indicator"></span>
+        <span class="status-text">Connecting...</span>
+    </div>
+
+    <script>
+        // Safari compatibility fix
+        if (navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Force Safari to recognize input styling
+                const input = document.getElementById('user-input');
+                if (input) {
+                    input.style.background = 'transparent';
+                    input.style.border = 'none';
+                    input.style.color = '#c0c0c0';
+                    input.style.outline = 'none';
+                    input.style.webkitAppearance = 'none';
+                    input.style.fontFamily = "'Consolas', 'Courier New', monospace";
+                }
+                
+                // Force terminal background
+                const terminal = document.querySelector('.terminal-content');
+                if (terminal) {
+                    terminal.style.backgroundColor = '#000000';
+                    terminal.style.color = '#c0c0c0';
+                }
+            });
+        }
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
