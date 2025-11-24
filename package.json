@@ -1,7 +1,7 @@
 {
-  "name": "mae-terminal-puzzle",
+  "name": "riri-order-tracker",
   "version": "1.0.0",
-  "description": "Mae AI order tracking system with terminal interface",
+  "description": "Riri AI order tracking system with terminal interface",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -11,24 +11,23 @@
     "npm": ">=8.0.0"
   },
   "keywords": [
-    "mae",
+    "riri",
     "order",
     "tracking",
     "terminal",
     "ai"
   ],
-  "author": "Mae Terminal Project",
+  "author": "Riri Order Tracker",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "discord.js": "^14.15.3",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "helmet": "^4.6.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
     "mysql2": "^3.15.3",
     "rate-limiter-flexible": "^2.4.2",
-    "socket.io": "^2.4.1",
-    "uuid": "^8.3.2"
+    "socket.io": "^4.7.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
