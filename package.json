@@ -1,0 +1,36 @@
+{
+  "name": "mae-terminal-puzzle",
+  "version": "1.0.0",
+  "description": "Mae AI order tracking system with terminal interface",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "mae",
+    "order",
+    "tracking",
+    "terminal",
+    "ai"
+  ],
+  "author": "Mae Terminal Project",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "discord.js": "^14.15.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "mysql2": "^3.15.3",
+    "rate-limiter-flexible": "^2.4.2",
+    "socket.io": "^2.4.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
