@@ -2,30 +2,30 @@ const mysql = require('mysql2/promise');
 
 class DatabaseManager {
     constructor() {
-        // Use the correct MySQL server details from hosting panel
+        // Use environment variables for database connection
+        const dbConfig = {
+            host: process.env.DB_HOST || 'srv1710.hstgr.io',
+            port: parseInt(process.env.DB_PORT) || 3306,
+            user: process.env.DB_USER || 'u779702962_nvvsklr',
+            password: process.env.DB_PASSWORD || 'Ya/MW8Xj~',
+            database: process.env.DB_NAME || 'u779702962_trackinginfo',
+            ssl: process.env.MYSQL_SSL === 'true' ? true : false,
+            connectTimeout: 10000
+        };
+
         this.connectionConfigs = [
             {
                 name: 'Hostinger MySQL hostname',
                 config: {
-                    host: 'srv1710.hstgr.io',
-                    port: 3306,
-                    user: 'u779702962_nvvsklr',
-                    password: 'vEb*6m|G',
-                    database: 'u779702962_trackinginfo',
-                    ssl: false,
-                    connectTimeout: 10000
+                    ...dbConfig,
+                    host: process.env.DB_HOST || 'srv1710.hstgr.io'
                 }
             },
             {
                 name: 'Hostinger MySQL IP',
                 config: {
-                    host: '82.197.82.93',
-                    port: 3306,
-                    user: 'u779702962_nvvsklr',
-                    password: 'vEb*6m|G',
-                    database: 'u779702962_trackinginfo',
-                    ssl: false,
-                    connectTimeout: 10000
+                    ...dbConfig,
+                    host: '82.197.82.93'
                 }
             }
         ];
